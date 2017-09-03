@@ -80,10 +80,12 @@ public final class JCapture {
         runningProperty.set(true);
         stopCamera = false;
 
-        Task<Void> task = new Task<Void>() {
+        System.out.println("here 0");
+
+        Runnable task = new Runnable() {
 
             @Override
-            protected Void call() throws Exception {
+            public void run() {
 
                 final AtomicReference<WritableImage> ref = new AtomicReference<>();
                 BufferedImage img;
@@ -128,13 +130,11 @@ public final class JCapture {
                 if(!videoDevice.close()) {
                     throw new RuntimeException("Cannot close device '" + videoDevice.getName() + "'.");
                 }
-
-                return null;
             }
         }; // end task
 
         Thread th = new Thread(task);
-        th.setDaemon(true);
+        th.setDaemon(false);
         th.start();
     }
 

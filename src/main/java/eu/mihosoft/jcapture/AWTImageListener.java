@@ -23,6 +23,7 @@
 package eu.mihosoft.jcapture;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * AWT image listener.
@@ -35,5 +36,5 @@ public interface AWTImageListener {
      *
      * @param image image
      */
-    void onNewImage(Image image);
+    void onNewImage(BufferedImage image);
 }

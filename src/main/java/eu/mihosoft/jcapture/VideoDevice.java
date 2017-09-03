@@ -99,7 +99,11 @@ public final class VideoDevice {
      * @param height height
      */
     public void setSize(int width, int height) {
-        this.webcam.setViewSize(new Dimension(width, height));
+        Dimension d = new Dimension(width, height);
+        this.webcam.setCustomViewSizes(new Dimension[] { d });
+        this.webcam.setViewSize(d);
+        this.width = width;
+        this.height = height;
     }
 
     /**
